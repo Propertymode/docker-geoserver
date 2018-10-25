@@ -27,7 +27,7 @@ services:
         timeout: 10s
         retries: 3
       labels:
-      - traefik.frontend.rule=Host:geoserver.loc.al
+      - traefik.frontend.rule=Host:${GEOSERVER_HOST}
       - traefik.docker.network=proxy
       - traefik.port=80
       networks:

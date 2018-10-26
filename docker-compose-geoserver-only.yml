@@ -18,7 +18,7 @@ services:
         - geoserver-data:/opt/geoserver/data_dir
       ports:
         - "80"
-      restart: on-failure
+      restart: unless-stopped
       env_file:
         - docker-env/geoserver.env
       healthcheck:
@@ -27,7 +27,7 @@ services:
         timeout: 10s
         retries: 3
       labels:
-      - traefik.frontend.rule=Host:${GEOSERVER_HOST}
+      - traefik.frontend.rule=Host:geoserver.rwandata.com
       - traefik.docker.network=proxy
       - traefik.port=80
       networks:
